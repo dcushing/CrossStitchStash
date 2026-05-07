@@ -23,7 +23,7 @@ enum PatternPriority: Int, Identifiable, CaseIterable, Codable {
 @Model final class Pattern {
     private(set) var name: String // Name of the pattern (ex "Stars")
     private(set) var author: String? // Pattern author (ex "8pxl")
-    private(set) var colors: [Thread] // Colors used by pattern
+    private(set) var colors: [Thread] = [] // Colors used by pattern
     private(set) var status: PatternStatus // Status (queued, in progress, completed, backlog)
     private(set) var priority: PatternPriority? // optionally set the priority
     

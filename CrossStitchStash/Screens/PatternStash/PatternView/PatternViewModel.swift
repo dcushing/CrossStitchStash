@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /**
  View model for PatternView
@@ -15,20 +16,32 @@ import SwiftUI
     private(set) var pattern: Pattern?
     var name: String
     var author: String
+    var colors: [Thread]
     var status: PatternStatus
     var priority: PatternPriority?
+    var modelContext: ModelContext
     
-    init(pattern: Pattern? = nil) {
+    init(pattern: Pattern? = nil, modelContext: ModelContext) {
         self.pattern = pattern
         self.name = pattern?.name ?? ""
         self.author = pattern?.author ?? ""
+        self.colors = pattern?.colors ?? []
         self.status = pattern?.status ?? PatternStatus.backlog
-        self.priority = pattern?.priority
+        self.priority = pattern?.priority ?? PatternPriority.medium
+        self.modelContext = modelContext
     }
     
-    func saveChanges() {
-        print("Saving changes to the pattern (implementation TBD)")
+    func saveChanges() -> Bool {
+        do {
+            let newPattern = Pattern(name: name, author: author, colors: colors, status: status, priority: priority)
+            modelContext.insert(newPattern)
+            try modelContext.save()
+            return true
+        } catch {
+            return false
+        }
     }
+
 }
 
 extension PatternStatus {

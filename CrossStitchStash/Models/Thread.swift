@@ -16,13 +16,15 @@ import SwiftData
     private(set) var code: String // ex "917"
     private(set) var brand: String? // ex "DMC"
     private(set) var skeinsInStash: Int // the number of skeins in the stash
+    @Relationship(inverse: \Pattern.colors) private(set) var patterns: [Pattern]
     
-    init(name: String? = nil, lengthPerSkein: Double, code: String, brand: String? = nil, skeinsInStash: Int) {
+    init(name: String? = nil, lengthPerSkein: Double, code: String, brand: String? = nil, skeinsInStash: Int, patterns: [Pattern] = []) {
         self.name = name
         self.lengthPerSkein = lengthPerSkein
         self.code = code
         self.brand = brand
         self.skeinsInStash = skeinsInStash
+        self.patterns = patterns
     }
     
     static func new() -> Thread {

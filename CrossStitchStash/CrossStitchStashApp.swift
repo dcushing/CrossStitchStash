@@ -12,7 +12,8 @@ import SwiftData
 struct CrossStitchStashApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Pattern.self,
+            Thread.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

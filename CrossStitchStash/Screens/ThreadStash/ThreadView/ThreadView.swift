@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct ThreadView: View {
-  var viewModel: ThreadViewModel
-
-  var body: some View {
-    ThreadViewDetailsView(viewModel: viewModel)
-          .navigationTitle(viewModel.thread == nil ? "Add thread" : "Edit thread")
-  }
+    @Environment(\.modelContext) private var modelContext
+    var viewModel: ThreadViewModel
+    @Bindable var router: ThreadsRouter
+    
+    var body: some View {
+        ThreadViewDetailsView(viewModel: viewModel)
+            .navigationTitle(viewModel.thread == nil ? "Add thread" : "Edit thread")
+            .toolbar {
+                ToolbarItem {
+                    Button("Save") {
+                        let saved = viewModel.saveChanges()
+                        if saved {
+                            router.navigationPath.removeLast()
+                        }
+                    }
+                }
+            }
+    }
 }
 
 private struct ThreadViewDetailsView: View {
@@ -27,11 +39,12 @@ private struct ThreadViewDetailsView: View {
           TextField("Length per skein", value: $viewModel.lengthPerSkein, format: .number)
           TextField("Skeins in stash",  value: $viewModel.skeinsInStash, format: .number)
       }
+      .padding()
   }
 }
 
-#if DEBUG
-#Preview("ThreadView") {
-    ThreadView(viewModel: ThreadViewModel())
-}
-#endif
+//#if DEBUG
+//#Preview("ThreadView") {
+//    ThreadView(viewModel: ThreadViewModel())
+//}
+//#endif
