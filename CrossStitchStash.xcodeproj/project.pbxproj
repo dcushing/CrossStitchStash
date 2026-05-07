@@ -27,6 +27,8 @@
 		5C782FB62EE49E39003783F3 /* CrossStitchStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossStitchStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C782FC62EE49E3A003783F3 /* CrossStitchStashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossStitchStashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C782FD02EE49E3A003783F3 /* CrossStitchStashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossStitchStashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C94B18C2FAD1047003CDB92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5C94B18D2FAD105D003CDB92 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -110,6 +112,8 @@
 		5C782FAD2EE49E39003783F3 = {
 			isa = PBXGroup;
 			children = (
+				5C94B18D2FAD105D003CDB92 /* .gitignore */,
+				5C94B18C2FAD1047003CDB92 /* README.md */,
 				5C782FB82EE49E39003783F3 /* CrossStitchStash */,
 				5C782FC92EE49E3A003783F3 /* CrossStitchStashTests */,
 				5C782FD32EE49E3A003783F3 /* CrossStitchStashUITests */,
