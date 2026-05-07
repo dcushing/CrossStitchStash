@@ -29,9 +29,44 @@
 		5C782FD02EE49E3A003783F3 /* CrossStitchStashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossStitchStashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5C94B1692FAD027B003CDB92 /* Exceptions for "CrossStitchStash" folder in "CrossStitchStashTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Screens/PatternStash/PatternStashView/PatternStashView.swift,
+				Screens/PatternStash/PatternStashView/PatternStashViewModel.swift,
+				Screens/PatternStash/PatternView/PatternView.swift,
+				Screens/PatternStash/PatternView/PatternViewModel.swift,
+				Screens/ThreadStash/ThreadStashView/ThreadStashView.swift,
+				Screens/ThreadStash/ThreadStashView/ThreadStashViewModel.swift,
+				Screens/ThreadStash/ThreadView/ThreadView.swift,
+				Screens/ThreadStash/ThreadView/ThreadViewModel.swift,
+			);
+			target = 5C782FC52EE49E3A003783F3 /* CrossStitchStashTests */;
+		};
+		5C94B16A2FAD027B003CDB92 /* Exceptions for "CrossStitchStash" folder in "CrossStitchStashUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Screens/PatternStash/PatternStashView/PatternStashView.swift,
+				Screens/PatternStash/PatternStashView/PatternStashViewModel.swift,
+				Screens/PatternStash/PatternView/PatternView.swift,
+				Screens/PatternStash/PatternView/PatternViewModel.swift,
+				Screens/ThreadStash/ThreadStashView/ThreadStashView.swift,
+				Screens/ThreadStash/ThreadStashView/ThreadStashViewModel.swift,
+				Screens/ThreadStash/ThreadView/ThreadView.swift,
+				Screens/ThreadStash/ThreadView/ThreadViewModel.swift,
+			);
+			target = 5C782FCF2EE49E3A003783F3 /* CrossStitchStashUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5C782FB82EE49E39003783F3 /* CrossStitchStash */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5C94B1692FAD027B003CDB92 /* Exceptions for "CrossStitchStash" folder in "CrossStitchStashTests" target */,
+				5C94B16A2FAD027B003CDB92 /* Exceptions for "CrossStitchStash" folder in "CrossStitchStashUITests" target */,
+			);
 			path = CrossStitchStash;
 			sourceTree = "<group>";
 		};
@@ -401,8 +436,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -438,8 +473,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
