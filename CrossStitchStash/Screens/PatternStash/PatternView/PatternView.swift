@@ -6,13 +6,26 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PatternView: View {
-  var viewModel: PatternViewModel
-
+    @Environment(\.modelContext) private var modelContext
+    var viewModel: PatternViewModel
+    @Bindable var router: PatternsRouter
+    
     var body: some View {
         PatternViewDetailsView(viewModel: viewModel)
             .navigationTitle(viewModel.pattern == nil ? "Add pattern" : "Edit pattern")
+            .toolbar {
+                ToolbarItem {
+                    Button("Save") {
+                        let saved = viewModel.saveChanges()
+                        if saved {
+                            router.navigationPath.removeLast()
+                        }
+                    }
+                }
+            }
     }
 }
 
@@ -34,11 +47,12 @@ private struct PatternViewDetailsView: View {
               }
           }
       }
+      .padding()
   }
 }
 
-#if DEBUG
-#Preview("PatternView") {
-    PatternView(viewModel: PatternViewModel())
-}
-#endif
+//#if DEBUG
+//#Preview("PatternView") {
+//    PatternView(viewModel: PatternViewModel())
+//}
+//#endif

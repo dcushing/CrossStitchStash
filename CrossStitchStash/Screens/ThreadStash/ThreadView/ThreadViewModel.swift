@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /**
  View model for `ThreadView`
@@ -18,14 +19,16 @@ import SwiftUI
     var brand: String
     var lengthPerSkein: Double
     var skeinsInStash: Int
+    var modelContext: ModelContext
     
-    init(thread: Thread? = nil) {
+    init(thread: Thread? = nil, modelContext: ModelContext) {
         self.thread = thread
         self.name = thread?.name ?? ""
         self.code = thread?.code ?? ""
         self.brand = thread?.brand ?? ""
         self.lengthPerSkein = thread?.lengthPerSkein ?? 0
         self.skeinsInStash = thread?.skeinsInStash ?? 0
+        self.modelContext = modelContext
     }
     
     /**
@@ -35,7 +38,14 @@ import SwiftUI
         return lengthPerSkein * Double(skeinsInStash)
     }
 
-    func saveChanges() {
-        print("Saving changes to the thread (implementation TBD)")
+    func saveChanges() -> Bool {
+        do {
+            let newThread = Thread(name: name, lengthPerSkein: lengthPerSkein, code: code, brand: brand, skeinsInStash: skeinsInStash)
+            modelContext.insert(newThread)
+            try modelContext.save()
+            return true
+        } catch {
+            return false
+        }
     }
 }

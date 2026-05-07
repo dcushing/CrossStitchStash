@@ -8,27 +8,44 @@
 import SwiftUI
 
 struct PatternStashView: View {
-  var viewModel: PatternStashViewModel
-
-  var body: some View {
-    VStack {
-      PatternStashViewDetailsView(viewModel: viewModel)
+    @Environment(\.modelContext) private var modelContext
+    var viewModel: PatternStashViewModel
+    @Bindable var router: PatternsRouter
+    
+    // TODO: fix routing/display for macOS
+    var body: some View {
+        NavigationSplitView {
+            NavigationStack(path: $router.navigationPath) {
+                List(viewModel.patterns) { pattern in
+                    Button(pattern.name) { router.navigateTo(route: .detail(pattern: pattern)) }
+                }.border(.blue)
+                .navigationDestination(for: PatternsRouter.Route.self) { route in
+                    switch route {
+                    case .detail(let pattern):
+                        PatternView(viewModel: PatternViewModel(pattern: pattern, modelContext: modelContext), router: router)
+                    case .new:
+                        PatternView(viewModel: PatternViewModel(pattern: nil, modelContext: modelContext), router: router)
+                    }
+                }
+            }
+#if os(macOS)
+            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
+#endif
+            .toolbar {
+                ToolbarItem {
+                    Button(action: { router.navigateTo(route: .new) }) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+            }
+        } detail: {
+            Text("Select a pattern")
+        }
     }
-  }
-}
-
-private struct PatternStashViewDetailsView: View {
-var viewModel: PatternStashViewModel
-
-  var body: some View {
-      ForEach(viewModel.patterns) { pattern in
-          Text(pattern.name)
-      }
-  }
 }
 
 #if DEBUG
-#Preview("PatternStashView") {
-    PatternStashView(viewModel: PatternStashViewModel())
-}
+//#Preview("PatternStashView") {
+//    PatternStashView(viewModel: PatternStashViewModel(), router: PatternsRouter())
+//}
 #endif
